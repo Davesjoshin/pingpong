@@ -22,10 +22,17 @@ module.exports = function(grunt) {
                 }
             },
             css: {
-                files: ['public/css/**'],
+                files: ['public/system/assets/css/**'],
                 tasks: ['csslint'],
                 options: {
                     livereload: true
+                }
+            },
+            scss: {
+                files: ['public/system/assets/scss/**'],
+                tasks: ['sass:dev'],
+                options: {
+                    livereload: false
                 }
             }
         },
@@ -56,6 +63,21 @@ module.exports = function(grunt) {
         cssmin: {
             combine: {
                 files: '<%= assets.css %>'
+            }
+        },
+        sass: {
+            dist: {
+                files: {
+                    'public/system/assets/css/main.css': 'public/system/assets/scss/main.scss'
+                }
+            },
+            dev: {
+                options: {
+                    sourceComments: 'map'
+                },
+                files: {
+                    'public/system/assets/css/main.css': 'public/system/assets/scss/main.scss'
+                }
             }
         },
         nodemon: {
@@ -107,9 +129,9 @@ module.exports = function(grunt) {
 
     //Default task(s).
     if (process.env.NODE_ENV === 'production') {
-        grunt.registerTask('default', ['jshint', 'csslint', 'cssmin', 'uglify', 'concurrent']);
+        grunt.registerTask('default', ['jshint', 'sass', 'csslint', 'cssmin', 'uglify', 'concurrent']);
     } else {
-        grunt.registerTask('default', ['jshint', 'csslint', 'concurrent']);
+        grunt.registerTask('default', ['jshint', 'sass', 'csslint', 'concurrent']);
     }
 
     //Test task.
