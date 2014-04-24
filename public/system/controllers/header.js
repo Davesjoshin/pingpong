@@ -42,5 +42,9 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
             };
         });
 
+        $rootScope.$on('$viewContentLoaded', function() {
+            $(document).foundation('reflow');
+        });
+
     }
 ]);
