@@ -16,8 +16,11 @@ for (var index in window.modules) {
 };
 
 // Default modules
-var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'mean.system', 'mean.articles', 'mean.games', 'mean.auth'];
+var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'mean.system', 'mean.articles', 'mean.auth'];
 modules = modules.concat(packageModules);
 
 // Combined modules
 angular.module('mean', modules);
+
+// Load up foundation
+$(document).foundation();
