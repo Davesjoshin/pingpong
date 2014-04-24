@@ -11,6 +11,6 @@
         "angular-bootstrap": "0.10.0",
         "angular-ui-router": "#master",
         "foundation": "latest",
-        "angular-foundation": "latest",
+        "angular-foundation": "latest"
     }
 }
