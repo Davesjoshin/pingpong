@@ -1,0 +1,15 @@
+<section data-ng-controller="GamesController" data-ng-init="findOne()">
+    <span>{{game.date | date:'medium'}}</span>
+    <h2>{{game.players[0].player.name}} vs {{game.players[1].player.name}}</h2>
+    <div data-ng-show="global.user._id == game.players[1].player._id">
+        <a class="btn" href="/#!/games/{{game._id}}/accept">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="decline();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <div data-ng-show="game.status == 1">Pending</div>
+    <div data-ng-show="game.status == 2">In Progress</div>
+    <div data-ng-show="game.status == 3">{{game.players[0].score}} to {{game.players[1].score}}</div>
+</section>
