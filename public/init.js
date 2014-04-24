@@ -6,7 +6,6 @@ angular.element(document).ready(function() {
 
 	//Then init the app
 	angular.bootstrap(document, ['mean']);
-
 });
 
 // Dynamically add angular modules declared by packages
@@ -22,3 +21,6 @@ modules = modules.concat(packageModules);
 
 // Combined modules
 angular.module('mean', modules);
+
+// Load up foundation
+$(document).foundation();
