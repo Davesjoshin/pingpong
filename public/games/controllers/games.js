@@ -34,7 +34,6 @@ angular.module('mean.games').controller('GamesController', ['$scope', '$statePar
 
     $scope.players = function() {
         Games.opponents(function(users) {
-            console.log(users);
             $scope.players = users;
         });
         $scope.players = [];
