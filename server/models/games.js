@@ -15,7 +15,10 @@ var GameSchema = new Schema({
         default: Date.now
     },
     players: [{ player: { type: Schema.ObjectId, ref: 'User' }, score: Number }],
-    status: Number
+    status: {
+        type: Number,
+        default: 0
+    }
 });
 
 /**
@@ -24,7 +27,7 @@ var GameSchema = new Schema({
 GameSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
-    }).populate('players.player', 'name _id').exec(cb);
+    }).populate('players.player', 'name').exec(cb);
 };
 
 mongoose.model('Game', GameSchema);

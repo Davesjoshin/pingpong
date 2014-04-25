@@ -1,16 +1,14 @@
-<section data-ng-controller="GamesController">
-    <form class="form-horizontal col-md-6" role="form" data-ng-submit="create()">
-        <div class="form-group">
-            <label mean-token="'create-title'" class="col-md-3 control-label">User</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" data-ng-model="user" id="user" placeholder="User" required>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-3 col-md-9">
-                <button type="submit" class="btn btn-info">Submit</button>
-            </div>
-        </div>
-    </form>
+<section data-ng-controller="GamesController" data-ng-init="players()">
+    <form class="form-horizontal col-md-6" role="form" >
+Players: {{players}}
+        <ul class="players unstyled">
+            <li data-ng-repeat="player in players">
+                <div class="form-group">
+                    <h2>{{player.name}}</h2>
+                    <div class="col-md-9">
+                        <a data-ng-click="create()" class="button">Challenge</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
 </section>

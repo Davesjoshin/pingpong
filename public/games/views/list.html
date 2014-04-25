@@ -3,9 +3,10 @@
         <li data-ng-repeat="game in games">
             <span>{{game.date | date:'medium'}}</span>
             <h2><a data-ng-href="#!/games/{{game._id}}">{{game.players[0].player.name}} vs {{game.players[1].player.name}}</a></h2>
-            <div data-ng-show="game.status == 1">Pending</div>
-            <div data-ng-show="game.status == 2">In Progress</div>
-            <div data-ng-show="game.status == 3">{{game.players[0].score}} to {{game.players[1].score}}</div>
+            <div data-ng-show="game.status == 0">Pending</div>
+            <div data-ng-show="game.status == 1">In Progress</div>
+            <div data-ng-show="game.status == 2">{{game.players[0].score}} to {{game.players[1].score}}</div>
+            
         </li>
     </ul>
     <h1 data-ng-hide="!games || games.length">No games yet. <br> Why don't you <a href="/#!/games/new">Start One</a>?</h1>
