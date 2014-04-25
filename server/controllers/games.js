@@ -44,7 +44,7 @@ exports.game = function(req, res, next, id) {
  * List of Games
  */
 exports.all = function(req, res) {
-    Game.find({ status : { $ne : 3 }}).sort('-date').populate('players.player', 'name username').exec(function(err, games) {
+    Game.find({ status : { $ne : 4 }}).sort('-date').populate('players.player', 'name username').exec(function(err, games) {
         if (err) {
             res.render('error', {
                 status: 500

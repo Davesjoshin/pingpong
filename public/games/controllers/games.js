@@ -39,7 +39,23 @@ angular.module('mean.games').controller('GamesController', ['$scope', '$statePar
         $scope.players = [];
     }
 
-    $scope.decline = function(game) {
+    $scope.decline = function() {
+        var game = $scope.game;
+        game.status = 4;
+        game.$update(function() {
+            $location.path('games/' + game._id);
+        });
+    }
+
+    $scope.accept = function() {
+        var game = $scope.game;
+        game.status = 1;
+        game.$update(function() {
+            $location.path('games/' + game._id);
+        });
+    }
+
+    $scope.approve = function() {
         var game = $scope.game;
         game.status = 3;
         game.$update(function() {
@@ -47,9 +63,9 @@ angular.module('mean.games').controller('GamesController', ['$scope', '$statePar
         });
     }
 
-    $scope.accept = function(game) {
+    $scope.update = function() {
         var game = $scope.game;
-        game.status = 1;
+        game.status = 2;
         game.$update(function() {
             $location.path('games/' + game._id);
         });

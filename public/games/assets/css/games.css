@@ -1,3 +1,13 @@
 .players li, .games li {
     list-style-type: none;
 }
+
+form.score {
+    margin: 10px auto;
+    text-align: center;
+}
+
+form.score input[type="number"] {
+    width: 80px;
+    display: inline-block;
+}

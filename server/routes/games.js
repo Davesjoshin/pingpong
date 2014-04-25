@@ -6,7 +6,7 @@ var authorization = require('./middlewares/authorization');
 
 // Games authorization helpers
 var hasAuthorization = function(req, res, next) {
-    if (req.game.players[1].player.id !== req.user.id) {
+    if (req.game.players[0].player.id !== req.user.id && req.game.players[1].player.id !== req.user.id) {
         return res.send(401, 'User is not authorized');
     }
     next();
