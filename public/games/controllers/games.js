@@ -31,4 +31,21 @@ angular.module('mean.games').controller('GamesController', ['$scope', '$statePar
             $scope.game = game;
         });
     };
+
+    $scope.decline = function(game) {
+        console.log(game);
+        if (game) {
+            game.$remove();
+
+            for (var i in $scope.games) {
+                if ($scope.games[i] === game) {
+                    $scope.games.splice(i, 1);
+                }
+            }
+        }
+        else {
+            $scope.game.$remove();
+            $location.path('games');
+        }
+    }
 }]);
