@@ -1,0 +1,3 @@
+.players li, .games li {
+    list-style-type: none;
+}
