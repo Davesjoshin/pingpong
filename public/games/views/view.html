@@ -1,6 +1,6 @@
 <section data-ng-controller="GamesController" data-ng-init="findOne()">
     <span>{{game.date | date:'medium'}}</span>
-    <h2>{{game.players[0].player.name}} vs {{game.players[1].player.name}}</h2>
+    <h2>{{game.players[0].player.name}} vs {{game.players[1].player.name ? game.players[1].player.name : game.unregistered + ' (pending registration)'}}</h2>
 
     <div data-ng-show="global.user._id == game.players[1].player._id && game.status == 0">
         <a class="button" data-ng-click="accept();">
@@ -9,7 +9,6 @@
         <a class="button" data-ng-click="decline();">
             Decline
         </a>
-
     </div>
     <div data-ng-show="game.status == 0">Pending</div>
     <div data-ng-show="game.status == 1">

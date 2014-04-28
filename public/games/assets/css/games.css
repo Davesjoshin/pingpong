@@ -11,3 +11,12 @@ form.score input[type="number"] {
     width: 80px;
     display: inline-block;
 }
+
+form.players {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+form.players label {
+    margin: 10px 0;
+}

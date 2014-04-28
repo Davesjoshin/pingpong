@@ -14,11 +14,22 @@ var GameSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    players: [{ player: { type: Schema.ObjectId, ref: 'User' }, score: Number }],
+    players: [{
+        player: {
+            type: Schema.ObjectId,
+            ref: 'User'
+        },
+        score: {
+            type: Number,
+            default: 0
+        },
+        _id: false
+    }],
     status: {
         type: Number,
         default: 0
-    }
+    },
+    unregistered: String
 });
 
 /**

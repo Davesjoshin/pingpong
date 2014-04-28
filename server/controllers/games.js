@@ -74,37 +74,19 @@ exports.opponents = function(req, res) {
 /**
  * Create a game
  */
-exports.create = function(req, res, next) {
-    User.findOne({email: req.body.player}).exec(function(err, user) {
-        if (err) return next(err);
-        if (!user) return next(new Error('Failed to load User ' + this.player));
-
-        var match = {
-            date: req.body.date,
-            players: [
-                {
-                    player: req.user._id,
-                    score: 0
-                },
-                {
-                    player: user._id,
-                    score: 0
-                }
-            ]
-        };
-
-        var game = new Game(match);
-        game.save(function(err) {
-            if (err) {
-                return res.send('/', {
-                    errors: err.errors,
-                    game: game
-                });
-            } else {
-                res.jsonp(game);
-            }
-        });
+exports.create = function(req, res) {
+    var game = new Game(req.body);
+    game.save(function(err) {
+        if (err) {
+            return res.send('/', {
+                errors: err.errors,
+                game: game
+            });
+        } else {
+            res.jsonp(game);
+        }
     });
+
 };
 
 /**

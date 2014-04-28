@@ -1,13 +1,16 @@
 <section data-ng-controller="GamesController" data-ng-init="players()">
-    <form class="form-horizontal col-md-6" role="form" >
-        <ul class="players unstyled">
-            <li data-ng-repeat="player in players">
-                <div class="form-group">
-                    <h2>{{player.name}}</h2>
-                    <div class="col-md-9">
-                        <a data-ng-click="create()" class="button">Challenge</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
+    <h1>Schedule a Match</h1>
+    <form class="form-horizontal col-md-6 players" role="form" data-ng-submit="create()">
+        <div class="form-group">
+            <label for="player">Select a player</label>
+            <select name="player" id="player" data-ng-model="player" data-ng-options="player as player.name + ' (' + player.email + ')' for player in players" class="players unstyled form-control"></select>
+        </div>
+        or
+
+        <label for="unregistered">Want to play a non-registered user?</label>
+        <input type="email" data-ng-model="unregistered" class="form-control" id="unregistered" placeholder="Email Address">
+        <button type="submit" class="btn btn-info">Send Request</button>
+    </form>
 </section>
+
+<!-- <select name="email" id="email" data-ng-model="player" data-ng-options="player as player.name + ' (' + player.email + ')' for player in players" class="players unstyled form-control"></select> -->
