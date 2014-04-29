@@ -1,3 +1,150 @@
+@import "settings";
+
 body {
-    background: #fff;
+    background: $background;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family;
+    color: $foreground;
+}
+
+label {
+    color: $foreground;
+}
+
+.contain-to-grid {
+    background: $top-bar;
+
+    .top-bar {
+        background: $top-bar;
+
+        .has-form {
+            background: $top-bar;
+        }
+    }
+}
+
+.content {
+    margin-top:35px;
+}
+
+.breadcrumbs {
+    margin-bottom:35px;
+    color: $foreground;
+    background: $primary-color;
+    border-color: darken($primary-color, 10);
+
+    a {
+        color: $foreground;
+
+        &:before {
+            color: darken($foreground, 10);
+        }
+
+        &.current {
+            color: darken($foreground, 90);
+        }
+    }
+}
+
+@font-face {
+    font-family:si;
+    src:    url(../fonts/socicon.eot?#iefix)
+                format(embedded-opentype),
+            url(../fonts/socicon.woff) format(woff),
+            url(../fonts/socicon.ttf) format(truetype),
+            url(../fonts/socicon.svg#siregular) format(svg);
+    font-weight:400;
+    font-style:normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family:si;
+        src: url(../fonts/socicon.svg#siregular) format(svg);
+    }
+}
+
+/* Social Icons */
+.soc {
+    overflow: hidden;
+    margin:0;
+    padding:0;
+    list-style:none;
+
+    li {
+        display:inline-block;
+
+        a {
+            font-family:si!important;
+            font-style:normal;
+            font-weight:400;
+            box-sizing:border-box;
+            overflow:hidden;
+            text-decoration:none;
+            text-align:center;
+            display:block;
+            position: relative;
+            z-index: 1;
+            width: 160px;
+            height: 160px;
+            line-height: 160px;
+            font-size: 96px;
+            border-radius: 10px;
+            margin-right: 10px;
+            color: #ffffff;
+            background-color: none;
+            transition: background ease 0.25s;
+        }
+    }
+}
+
+.soc-twitter {
+    background-color: #4da7de;
+
+    &:hover {
+        background-color: lighten(#4da7de, 5);
+    }
+
+    &:before {
+        content:'a';
+    }
+}
+
+.soc-facebook {
+    background-color: #3e5b98;
+
+    &:hover {
+        background-color: lighten(#3e5b98, 5);
+    }
+
+    &:before {
+        content:'b';
+    }
+}
+.soc-google {
+    background-color: #d93e2d;
+
+    &:hover {
+        background-color: lighten(#d93e2d, 5);
+    }
+
+    &:before {
+        content:'c';
+    }
+}
+
+.soc-linkedin {
+    background-color: #3371b7;
+
+    &:hover {
+        background-color: lighten(#3371b7, 5);
+    }
+
+    &:before {
+        content:'j';
+    }
 }

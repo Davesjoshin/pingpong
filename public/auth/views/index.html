@@ -1,33 +1,24 @@
 <div>
-
     <div class="row">
-        <div class="col-md-offset-1 col-md-5">
-            <p>How do you want to login?</p>
-            <a href="/auth/facebook">
-                <img src="/public/auth/assets/img/icons/facebook.png"/>
-            </a>
-
-            <a href="/auth/github">
-                <img src="/public/auth/assets/img/icons/github.png"/>
-            </a>
-
-            <a href="/auth/linkedin">
-                <img src="/public/auth/assets/img/icons/linkedin.png"/>
-            </a>
-
-            <a href="/auth/twitter">
-                <img src="/public/auth/assets/img/icons/twitter.png"/>
-            </a>
-
-            <a href="/auth/google">
-                <img src="/public/auth/assets/img/icons/google.png"/>
-            </a>
+        <div class="column small-12">
+            <nav class="breadcrumbs">
+                <a href="#">Home</a>
+                <a class="current" href="#">Sign In</a>
+            </nav>
         </div>
     </div>
-    <div class="col-md-6">
-
-
-        <div ui-view></div>
+    <div class="row">
+        <div class="column large-6">
+            <h1>Social Sign in</h1>
+            <ul class="soc">
+                <li><a class="soc-google" href="/auth/google"></a></li>
+                <li><a class="soc-facebook" href="/auth/facebook"></a></li>
+                <li><a class="soc-linkedin" href="/auth/linkedin"></a></li>
+                <li><a class="soc-twitter" href="/auth/twitter"></a></li>
+            </ul>
+        </div>
+        <div class="column small-centered large-6">
+            <div ui-view></div>
+        </div>
     </div>
-
 </div>
