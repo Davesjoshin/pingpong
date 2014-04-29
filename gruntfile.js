@@ -118,7 +118,8 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'test/karma/karma.conf.js'
             }
-        }
+        },
+        clean: ['public/build']
     });
 
     //Load NPM tasks
@@ -129,11 +130,11 @@ module.exports = function(grunt) {
 
     //Default task(s).
     if (process.env.NODE_ENV === 'production') {
-        grunt.registerTask('default', ['jshint', 'sass', 'csslint', 'cssmin', 'uglify', 'concurrent']);
+        grunt.registerTask('default', ['clean', 'jshint', 'sass', 'csslint', 'cssmin', 'uglify', 'concurrent']);
     } else {
-        grunt.registerTask('default', ['jshint', 'sass', 'csslint', 'concurrent']);
+        grunt.registerTask('default', ['clean', 'jshint', 'sass', 'csslint', 'concurrent']);
     }
 
     //Test task.
-    grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+    grunt.registerTask('test', ['clean', 'env:test', 'mochaTest', 'karma:unit']);
 };
