@@ -3,7 +3,7 @@
 module.exports = {
     db: 'mongodb://localhost/mean',
     app: {
-        name: 'MEAN - A Modern Stack - Production'
+        name: 'PingPong - A gentlemen\'s sport'
     },
     facebook: {
         clientID: 'APP_ID',
@@ -23,7 +23,7 @@ module.exports = {
     google: {
         clientID: '475115761281.apps.googleusercontent.com',
         clientSecret: 'hP3q_Ihc_pNhomIpY8RdAK_z',
-        callbackURL: 'http://truetiger.ape.arvixe.com:3000/auth/google/callback'
+        callbackURL: 'http://pingpong.ictheory.com/auth/google/callback'
     },
     linkedin: {
         clientID: 'API_KEY',
