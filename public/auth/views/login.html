@@ -1,21 +1,31 @@
 <div data-ng-controller="LoginCtrl">
-    <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
     <h1>Sign in</h1>
-    <form  ng-submit="login()" class="signin form-horizontal">
-        <div class="form-group">
-            <label for="email" class="col-md-4 control-label">Email</label>
-            <div class="col-md-8">
+    <form  ng-submit="login()" class="signin form-horizontal" data-abide>
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="email" class="right">Email</label>
+            </div>
+            <div class="small-9 columns">
                 <input required id="email" type="email" name="email" placeholder="Email" class="form-control" ng-model="user.email"/>
+                <small class="error">An email address is required.</small>
             </div>
         </div>
-        <div class="form-group">
-            <label for="password" class="col-md-4 control-label">Password</label>
-            <div class="col-md-8">
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="password" class="right">Password</label>
+            </div>
+            <div class="small-9 columns">
                 <input required id="password" type="password" name="password" placeholder="Password" class="form-control" ng-model="user.password"/>
+                <small class="error">Please supply a password.</small>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-4 col-md-8">
+        <div class="row">
+            <div class="columns small-12">
+                <div data-alert class="alert-box" ng-show="loginerror">{{loginerror}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns small-12">
                 <button type="submit" class="btn btn-primary">Sign in</button>&nbsp;
                 or&nbsp;<a ui-sref='auth.register' class="show-signup">Sign up</a>
             </div>

@@ -21,6 +21,10 @@ label {
     .top-bar {
         background: $top-bar;
 
+        ul {
+            background: $top-bar;
+        }
+
         .has-form {
             background: $top-bar;
         }

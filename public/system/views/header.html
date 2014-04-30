@@ -18,18 +18,18 @@
       </ul>
 
       <ul class="right" data-ng-show="global.authenticated">
+        <li class="has-form">
+          <a href="/#!/games/new" class="button">Schedule a Match</a>
+        </li>
+        <li class="has-form">
+          <a href="/#!/games" class="button">Game List</a>
+        </li>
         <li class="has-dropdown">
           <a href="#!">{{global.user.name}}</a>
           <ul class="dropdown">
             <li><a href="/users/me">Profile</a></li>
             <li><a href="/logout">Logout</a></li>
           </ul>
-        </li>
-        <li class="has-form">
-          <a href="/#!/games/new" class="button">Schedula a Match</a>
-        </li>
-        <li class="has-form">
-          <a href="/#!/games" class="button">Game List</a>
         </li>
       </ul>
     </section>
