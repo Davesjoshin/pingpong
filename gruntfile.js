@@ -124,7 +124,7 @@ module.exports = function(grunt) {
             main: {
                 files: [
                   // Copy over fonts to the build directory
-                  {expand: true, src: ['public/system/assets/fonts/**'], dest: 'public/build/fonts'},
+                  {expand: true, flatten: true, src: ['public/system/assets/fonts/**'], dest: 'public/build/fonts'},
                 ]
             }
         }
