@@ -119,7 +119,15 @@ module.exports = function(grunt) {
                 configFile: 'test/karma/karma.conf.js'
             }
         },
-        clean: ['public/build']
+        clean: ['public/build'],
+        copy: {
+            main: {
+                files: [
+                  // Copy over fonts to the build directory
+                  {expand: true, src: ['public/system/assets/fonts/**'], dest: 'public/build/fonts'},
+                ]
+            }
+        }
     });
 
     //Load NPM tasks
@@ -130,7 +138,7 @@ module.exports = function(grunt) {
 
     //Default task(s).
     if (process.env.NODE_ENV === 'production') {
-        grunt.registerTask('default', ['clean', 'jshint', 'sass', 'csslint', 'cssmin', 'uglify']);
+        grunt.registerTask('default', ['clean', 'jshint', 'sass', 'csslint', 'cssmin', 'uglify', 'copy']);
     } else {
         grunt.registerTask('default', ['clean', 'jshint', 'sass', 'csslint', 'concurrent']);
     }
