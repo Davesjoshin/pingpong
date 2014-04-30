@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+    Game = mongoose.model('Game'),
     User = mongoose.model('User');
 
 /**
@@ -72,6 +73,18 @@ exports.create = function(req, res, next) {
 
             return res.status(400);
         }
+        Game.find({ unregistered: user.email }).exec(function(err, games) {
+            if (err) return next(err);
+            if (games) {
+                for (var i = 0; i < games.length; i++) {
+                    games[i].players.push({ player: user._id });
+                    games[i].unregistered = '';
+                    games[i].save(function(err) {
+                        return next(err);
+                    });
+                }
+            }
+        });
         req.logIn(user, function(err) {
             if (err) return next(err);
             return res.redirect('/');
