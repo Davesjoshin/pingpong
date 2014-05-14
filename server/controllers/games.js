@@ -102,13 +102,12 @@ exports.show = function(req, res) {
  */
 exports.update = function(req, res) {
     var game = req.game;
-
     game = _.extend(game, req.body);
 
     game.save(function(err) {
         if (err) {
             return res.send('users/signup', {
-                errors: err.errors,
+                errors: err,
                 game: game
             });
         } else {

@@ -61,17 +61,27 @@ angular.module('mean.games').controller('GamesController', ['$scope', '$statePar
         });
     };
 
-    $scope.approve = function() {
-        var game = $scope.game;
-        game.status = 3;
-        game.$update(function() {
-            $location.path('games/' + game._id);
-        });
-    };
-
     $scope.update = function() {
         var game = $scope.game;
         game.status = 2;
+        game.$update(function(rsp) {
+            if (typeof rsp.errors != 'undefined') {
+                Games.get({
+                    gameId: rsp.game._id
+                }, function(game) {
+                    $scope.game = game;
+                });
+                $scope.error = 'Score already entered';
+                $location.path('games/' + rsp.game._id);
+            } else {
+                $location.path('games/' + game._id);
+            }
+        });
+    };
+
+    $scope.approve = function() {
+        var game = $scope.game;
+        game.status = 3;
         game.$update(function() {
             $location.path('games/' + game._id);
         });
